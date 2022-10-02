@@ -8,13 +8,6 @@ function getRandomIntInclusive(min, max) {
 }
 
 //Функция для проверки максимальной длины строки
-function maxlengthStr(str, minlength, maxlength) {
-  minlength = 4;
-  maxlength = 7;
-
-  if (str.length < minlength || str.length > maxlength) {
-    return false;
-  } else {
-    return str;
-  }
+function checkLengthStr(str, length) {
+  return str.length <= length;
 }
