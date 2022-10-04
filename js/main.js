@@ -72,4 +72,4 @@ const createCard = () => ({
 
 const totalCards = Array.from({ length: cardCount }, createCard);
 
-console.log(totalCards);
+// console.log(totalCards);
