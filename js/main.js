@@ -1,4 +1,3 @@
-
 const idPhoto = [];
 const urlPhoto = [
   'photos/1.jpg',
@@ -73,4 +72,4 @@ const createCard = () => ({
 
 const totalCards = Array.from({ length: cardCount }, createCard);
 
-totalCards();
+console.log(totalCards);
