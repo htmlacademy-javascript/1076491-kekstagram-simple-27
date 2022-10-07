@@ -1,52 +1,24 @@
-const idPhoto = [];
-const urlPhoto = [
-  'photos/1.jpg',
-  'photos/2.jpg',
-  'photos/3.jpg',
-  'photos/4.jpg',
-  'photos/5.jpg',
-  'photos/6.jpg',
-  'photos/7.jpg',
-  'photos/8.jpg',
-  'photos/9.jpg',
-  'photos/10.jpg',
-  'photos/11.jpg',
-  'photos/12.jpg',
-  'photos/13.jpg',
-  'photos/14.jpg',
-  'photos/15.jpg',
-  'photos/16.jpg',
-  'photos/17.jpg',
-  'photos/18.jpg',
-  'photos/19.jpg',
-  'photos/20.jpg',
-  'photos/21.jpg',
-  'photos/22.jpg',
-  'photos/23.jpg',
-  'photos/24.jpg',
-  'photos/25.jpg',
-];
-const description = [
-  'получилась фотография лучше',
+const PHOTOS_COUNT = 25;
+const ID_PHOTOS = Array.from({ length: PHOTOS_COUNT }, (_, i) => i + 1);
+const URL_PHOTOS = Array.from(
+  { length: PHOTOS_COUNT },
+  (_, i) => `photos/${i + 1}.jpg`
+);
+
+const DESCRIPTIONS = [
+  'Получилась фотография лучше',
   'Всё отлично!',
-  'придумайте название самостоятельно',
-  'В целом всё неплохо',
-  'такой неудачный момент!',
+  'Придумайте название самостоятельно',
+  'Всё неплохо',
+  'Такой неудачный момент!',
 ];
-const likes = [];
-const comments = [];
-const cardCount = 25;
 
-for (let i = 1; i <= 25; i++) {
-  idPhoto.push(i);
+function getRandomLike(min = 15, max = 200) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
-for (let i = 15; i <= 200; i++) {
-  likes.push(i);
-}
-
-for (let i = 0; i <= 200; i++) {
-  comments.push(i);
+function getRandomComment(min = 0, max = 200) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 const getRandomPositiveInteger = (a, b) => {
@@ -62,16 +34,18 @@ const getRandomPositiveInteger = (a, b) => {
 const getRandomArrayElement = (elements) =>
   elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-const createCard = () => ({
-  id: getRandomArrayElement(idPhoto),
-  url: getRandomArrayElement(urlPhoto),
-  description: getRandomArrayElement(description),
-  likes: getRandomArrayElement(likes),
-  comments: getRandomArrayElement(comments),
+const createCard = (i) => ({
+  id: ID_PHOTOS[i],
+  url: URL_PHOTOS[i],
+  description: getRandomArrayElement(DESCRIPTIONS),
+  likes: getRandomLike(),
+  comments: getRandomComment(),
 });
 
-const totalCards = Array.from({ length: cardCount }, createCard);
+const totalCards = Array.from({ length: PHOTOS_COUNT }, (_, i) =>
+  createCard(i)
+);
 
-totalCards();
+// totalCards();
 
 // console.log(totalCards);
