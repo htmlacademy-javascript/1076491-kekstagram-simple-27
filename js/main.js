@@ -48,4 +48,4 @@ const totalCards = Array.from({ length: PHOTOS_COUNT }, (_, i) =>
 
 // totalCards();
 
-// console.log(totalCards);
+console.log(totalCards);
