@@ -46,4 +46,4 @@ const totalCards = Array.from({ length: PHOTOS_COUNT }, (_, i) =>
   createCard(i)
 );
 
-console.log(totalCards);
+totalCards();
