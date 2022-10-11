@@ -5,8 +5,8 @@ import {
 } from './util.js';
 
 const PHOTOS_COUNT = 25;
-const ID_PHOTOS = Array.from({ length: PHOTOS_COUNT }, (_, i) => i + 1);
-const URL_PHOTOS = Array.from(
+const idPhotos = Array.from({ length: PHOTOS_COUNT }, (_, i) => i + 1);
+const urlPhotos = Array.from(
   { length: PHOTOS_COUNT },
   (_, i) => `photos/${i + 1}.jpg`
 );
@@ -19,16 +19,15 @@ const DESCRIPTIONS = [
   'Такой неудачный момент!',
 ];
 
-const createCard = (i) => ({
-  id: ID_PHOTOS[i],
-  url: URL_PHOTOS[i],
+const createCard = (index) => ({
+  id: idPhotos[index],
+  url: urlPhotos[index],
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomLike(),
   comments: getRandomComment(),
 });
 
-const totalCards = Array.from({ length: PHOTOS_COUNT }, (_, i) =>
-  createCard(i)
-);
+const createCards = () =>
+  Array.from({ length: PHOTOS_COUNT }, (_, index) => createCard(index));
 
-export { totalCards };
+export { createCards };
