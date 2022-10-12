@@ -1,3 +1,1 @@
-import { totalCards } from './data.js';
-
-totalCards();
+import './setup.js';
