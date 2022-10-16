@@ -1,11 +1,14 @@
 import { isEscapeKey } from './util.js';
-import { idPhotos } from './data.js';
+import { urlPhotos } from './data.js';
 
 const body = document.querySelector('body');
 const imageUpload = document.querySelector('.img-upload__overlay');
 const buttonCancel = document.querySelector('#upload-cancel');
 
 const picture = document.querySelectorAll('.picture');
+
+const fullPhoto = document.querySelector('img');
+fullPhoto.classList.add('full-photo');
 
 const onModalEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
@@ -14,10 +17,16 @@ const onModalEscKeydown = (evt) => {
   }
 };
 
-for (let i = 0; i < idPhotos.length; i++) {
-  picture[i].addEventListener('click', () => {
+const addThumbnailClickHandler = function (thumbnail, photo) {
+  thumbnail.addEventListener('click', () => {
+    fullPhoto.src = photo;
+
     openUserModal();
   });
+};
+
+for (let i = 0; i < urlPhotos.length; i++) {
+  addThumbnailClickHandler(picture[i], urlPhotos[i]);
 }
 
 function openUserModal() {

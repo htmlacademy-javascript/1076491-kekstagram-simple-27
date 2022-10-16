@@ -6,7 +6,11 @@ const preview = document.querySelector('.img-upload__overlay');
 
 uploadFile.style.opacity = 0;
 
+const fullPhoto = document.querySelector('img');
+fullPhoto.classList.add('full-photo');
+
 uploadFile.addEventListener('change', () => {
+  fullPhoto.src = '';
   updateImageDisplay();
   openUserModal();
 });
