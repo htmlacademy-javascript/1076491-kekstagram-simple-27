@@ -1,22 +1,22 @@
 import { createCards } from './data.js';
 
-const pictureListElement = document.querySelector('.pictures');
-const pictureTemplate = document
+const cardListElement = document.querySelector('.pictures');
+const catdTemplate = document
   .querySelector('#picture')
   .content.querySelector('a');
 
-const pictures = createCards();
+const cards = createCards();
 
-const pictureListFragment = document.createDocumentFragment();
+const cardListFragment = document.createDocumentFragment();
 
-pictures.forEach(({ url, likes, comments }) => {
-  const pictureElement = pictureTemplate.cloneNode(true);
-  pictureListElement.appendChild(pictureElement);
-  pictureElement.querySelector('img').src = url;
-  pictureElement.querySelector('.picture__comments').textContent = comments;
-  pictureElement.querySelector('.picture__likes').textContent = likes;
+cards.map(({ url, likes, comments }) => {
+  const cardElement = catdTemplate.cloneNode(true);
+  cardListElement.appendChild(cardElement);
+  cardElement.querySelector('img').src = url;
+  cardElement.querySelector('.picture__comments').textContent = comments;
+  cardElement.querySelector('.picture__likes').textContent = likes;
 
-  pictureListFragment.appendChild(pictureElement);
+  cardListFragment.appendChild(cardElement);
 });
 
-pictureListElement.appendChild(pictureListFragment);
+cardListElement.appendChild(cardListFragment);

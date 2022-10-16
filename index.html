@@ -29,6 +29,7 @@
               method="post"
               enctype="multipart/form-data"
               autocomplete="off"
+              action="https://27.javascript.pages.academy/kekstagram-simple"
             >
               <!-- Изначальное состояние поля для загрузки изображения -->
               <fieldset class="img-upload__start">
@@ -37,7 +38,7 @@
                   id="upload-file"
                   class="img-upload__input visually-hidden"
                   name="filename"
-                  required
+                  accept=".jpg, .jpeg, .png, .gif"
                 />
                 <label
                   for="upload-file"
@@ -79,6 +80,7 @@
                       <img
                         src="img/upload-default-image.jpg"
                         alt="Предварительный просмотр фотографии"
+                        id="fullPhoto"
                       />
                     </div>
 
@@ -210,6 +212,11 @@
                       class="text__description"
                       name="description"
                       placeholder="Ваш комментарий..."
+                      minlength="20"
+                      maxlength="140"
+                      required
+                      data-pristine-required-message="Обязательное поле"
+                      data-pristine-minlength-message="Количество символов от 20 до 140"
                     ></textarea>
                   </fieldset>
 
@@ -309,6 +316,7 @@
         </div>
       </section>
     </template>
+    <script src="vendor/pristine/pristine.min.js"></script>
     <script src="js/main.js" type="module"></script>
   </body>
 </html>
