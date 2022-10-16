@@ -30,4 +30,4 @@ const createCard = (index) => ({
 const createCards = () =>
   Array.from({ length: PHOTOS_COUNT }, (_, index) => createCard(index));
 
-export { createCards, idPhotos };
+export { createCards, urlPhotos };
