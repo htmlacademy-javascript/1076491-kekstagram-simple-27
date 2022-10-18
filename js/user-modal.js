@@ -21,6 +21,10 @@ const addThumbnailClickHandler = function (thumbnail, photo) {
   thumbnail.addEventListener('click', () => {
     fullPhoto.src = photo;
 
+    document.querySelectorAll('.effects__preview').forEach((elem) => {
+      elem.style.backgroundImage = `url('${photo}')`;
+    });
+
     openUserModal();
   });
 };
@@ -47,6 +51,55 @@ function closeUserModal() {
 
   document.removeEventListener('keydown', onModalEscKeydown);
 }
+
+const scaleControlSmall = document.querySelector('.scale__control--smaller');
+const scaleControlBig = document.querySelector('.scale__control--bigger');
+const scaleControlValue = document.querySelector('.scale__control--value');
+
+let counter = 100;
+
+scaleControlSmall.addEventListener('click', () => {
+  if (counter > 25) {
+    counter -= 25;
+
+    if (counter === 25) {
+      fullPhoto.style.transform = 'scale(0.25)';
+    }
+    if (counter === 50) {
+      fullPhoto.style.transform = 'scale(0.5)';
+    }
+    if (counter === 75) {
+      fullPhoto.style.transform = 'scale(0.75)';
+    }
+    if (counter === 100) {
+      fullPhoto.style.transform = 'scale(1)';
+    }
+  }
+  scaleControlValue.value = counter + String('%');
+  scaleControlSmall.classList.toggle('added');
+});
+
+scaleControlBig.addEventListener('click', () => {
+  if (counter < 100) {
+    counter += 25;
+
+    if (counter === 25) {
+      fullPhoto.style.transform = 'scale(0.25)';
+    }
+    if (counter === 50) {
+      fullPhoto.style.transform = 'scale(0.5)';
+    }
+    if (counter === 75) {
+      fullPhoto.style.transform = 'scale(0.75)';
+    }
+    if (counter === 100) {
+      fullPhoto.style.transform = 'scale(1)';
+    }
+  }
+
+  scaleControlValue.value = counter + String('%');
+  scaleControlBig.classList.toggle('added');
+});
 
 buttonCancel.addEventListener('click', () => {
   closeUserModal();
