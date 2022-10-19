@@ -10,6 +10,26 @@ const picture = document.querySelectorAll('.picture');
 const fullPhoto = document.querySelector('img');
 fullPhoto.classList.add('full-photo');
 
+const scaleControlSmall = document.querySelector('.scale__control--smaller');
+const scaleControlBig = document.querySelector('.scale__control--bigger');
+const scaleControlValue = document.querySelector('.scale__control--value');
+
+let counter = 100;
+
+const smallPhoto = document.querySelectorAll('.effects__preview');
+const effectsPreviewNone = document.querySelector('.effects__preview--none');
+const effectsPreviewChrome = document.querySelector(
+  '.effects__preview--chrome'
+);
+const effectsPreviewSepia = document.querySelector('.effects__preview--sepia');
+const effectsPreviewMarvin = document.querySelector(
+  '.effects__preview--marvin'
+);
+const effectsPreviewPhobos = document.querySelector(
+  '.effects__preview--phobos'
+);
+const effectsPreviewHeat = document.querySelector('.effects__preview--heat');
+
 const onModalEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
@@ -21,7 +41,7 @@ const addThumbnailClickHandler = function (thumbnail, photo) {
   thumbnail.addEventListener('click', () => {
     fullPhoto.src = photo;
 
-    document.querySelectorAll('.effects__preview').forEach((elem) => {
+    smallPhoto.forEach((elem) => {
       elem.style.backgroundImage = `url('${photo}')`;
     });
 
@@ -45,18 +65,77 @@ function openUserModal() {
   });
 }
 
+effectsPreviewNone.addEventListener('click', () => {
+  fullPhoto.classList.remove(
+    'effects__preview--chrome',
+    'effects__preview--sepia',
+    'effects__preview--marvin',
+    'effects__preview--phobos',
+    'effects__preview--heat'
+  );
+});
+
+effectsPreviewChrome.addEventListener('click', () => {
+  fullPhoto.classList.add('effects__preview--chrome');
+  fullPhoto.classList.remove(
+    'effects__preview--none',
+    'effects__preview--sepia',
+    'effects__preview--marvin',
+    'effects__preview--phobos',
+    'effects__preview--heat'
+  );
+});
+
+effectsPreviewSepia.addEventListener('click', () => {
+  fullPhoto.classList.add('effects__preview--sepia');
+  fullPhoto.classList.remove(
+    'effects__preview--chrome',
+    'effects__preview--none',
+    'effects__preview--marvin',
+    'effects__preview--phobos',
+    'effects__preview--heat'
+  );
+});
+
+effectsPreviewMarvin.addEventListener('click', () => {
+  fullPhoto.classList.add('effects__preview--marvin');
+  fullPhoto.classList.remove(
+    'effects__preview--chrome',
+    'effects__preview--sepia',
+    'effects__preview--none',
+    'effects__preview--phobos',
+    'effects__preview--heat'
+  );
+});
+
+effectsPreviewPhobos.addEventListener('click', () => {
+  fullPhoto.classList.add('effects__preview--phobos');
+  fullPhoto.classList.remove(
+    'effects__preview--chrome',
+    'effects__preview--sepia',
+    'effects__preview--marvin',
+    'effects__preview--none',
+    'effects__preview--heat'
+  );
+});
+
+effectsPreviewHeat.addEventListener('click', () => {
+  fullPhoto.classList.add('effects__preview--heat');
+  fullPhoto.classList.remove(
+    'effects__preview--chrome',
+    'effects__preview--sepia',
+    'effects__preview--marvin',
+    'effects__preview--phobos',
+    'effects__preview--none'
+  );
+});
+
 function closeUserModal() {
   imageUpload.classList.add('hidden');
   body.classList.remove('modal-open');
 
   document.removeEventListener('keydown', onModalEscKeydown);
 }
-
-const scaleControlSmall = document.querySelector('.scale__control--smaller');
-const scaleControlBig = document.querySelector('.scale__control--bigger');
-const scaleControlValue = document.querySelector('.scale__control--value');
-
-let counter = 100;
 
 scaleControlSmall.addEventListener('click', () => {
   if (counter > 25) {
