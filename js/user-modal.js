@@ -44,6 +44,7 @@ for (let i = 0; i < urlPhotos.length; i++) {
 function openUserModal() {
   imageUpload.classList.remove('hidden');
   body.classList.add('modal-open');
+  scaleControlValue.value = counter + String('%');
 
   document.addEventListener('keydown', (evt) => {
     if (isEscapeKey(evt)) {
