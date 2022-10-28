@@ -50,6 +50,16 @@ function openUserModal() {
     if (isEscapeKey(evt)) {
       evt.preventDefault();
       imageUpload.classList.add('hidden');
+      fullPhoto.style.transform = '';
+      counter = 100;
+
+      fullPhoto.classList.remove(
+        'effects__preview--chrome',
+        'effects__preview--sepia',
+        'effects__preview--marvin',
+        'effects__preview--phobos',
+        'effects__preview--heat'
+      );
     }
   });
 }
@@ -57,6 +67,16 @@ function openUserModal() {
 function closeUserModal() {
   imageUpload.classList.add('hidden');
   body.classList.remove('modal-open');
+  fullPhoto.style.transform = '';
+  counter = '100';
+
+  fullPhoto.classList.remove(
+    'effects__preview--chrome',
+    'effects__preview--sepia',
+    'effects__preview--marvin',
+    'effects__preview--phobos',
+    'effects__preview--heat'
+  );
 
   document.removeEventListener('keydown', onModalEscKeydown);
 }
