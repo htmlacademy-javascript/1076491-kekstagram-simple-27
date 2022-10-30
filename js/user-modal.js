@@ -137,4 +137,4 @@ buttonCancel.addEventListener('click', () => {
   closeUserModal();
 });
 
-export { openUserModal, fullPhoto, smallPhoto };
+export { openUserModal, closeUserModal, fullPhoto, smallPhoto };
