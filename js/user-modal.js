@@ -1,5 +1,5 @@
 import { isEscapeKey } from './util.js';
-import { urlPhotos } from './data.js';
+// import { urlPhotos } from './data.js';
 
 const body = document.querySelector('body');
 const imageUpload = document.querySelector('.img-upload__overlay');
@@ -16,7 +16,8 @@ const scaleControlValue = document.querySelector('.scale__control--value');
 
 let counter = 100;
 
-const smallPhoto = document.querySelectorAll('.effects__preview');
+// const smallPhoto = document.querySelectorAll('.effects__preview');
+const smallPhoto = document.querySelector('.effects__preview');
 
 const onModalEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
@@ -25,26 +26,34 @@ const onModalEscKeydown = (evt) => {
   }
 };
 
-const addThumbnailClickHandler = function (thumbnail, photo) {
-  thumbnail.addEventListener('click', () => {
-    fullPhoto.src = photo;
+const pic = document.querySelector('.pictures');
 
-    smallPhoto.forEach((elem) => {
-      elem.style.backgroundImage = `url('${photo}')`;
-    });
+pic.addEventListener('click', () => {
+  // openUserModal();
+});
 
-    openUserModal();
-  });
-};
+// const addThumbnailClickHandler = function (thumbnail, photo) {
+//   thumbnail.addEventListener('click', () => {
+//     fullPhoto.src = photo;
 
-for (let i = 0; i < urlPhotos.length; i++) {
-  addThumbnailClickHandler(picture[i], urlPhotos[i]);
-}
+//     smallPhoto.forEach((elem) => {
+//       elem.style.backgroundImage = `url('${photo}')`;
+//     });
+
+//     openUserModal();
+//   });
+// };
+
+// for (let i = 0; i < urlPhotos.length; i++) {
+//   addThumbnailClickHandler(picture[i], urlPhotos[i]);
+// }
 
 function openUserModal() {
   imageUpload.classList.remove('hidden');
   body.classList.add('modal-open');
   scaleControlValue.value = counter + String('%');
+
+  // smallPhoto.style.backgroundImage = 'url("../img/upload-button-bg.png")';
 
   document.addEventListener('keydown', (evt) => {
     if (isEscapeKey(evt)) {

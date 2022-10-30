@@ -9,11 +9,24 @@ uploadFile.style.opacity = 0;
 const fullPhoto = document.querySelector('img');
 fullPhoto.classList.add('full-photo');
 
+const smallPhoto = document.querySelector('.effects__preview');
+
 uploadFile.addEventListener('change', () => {
-  fullPhoto.src = '';
+  // fullPhoto.src = ' ';
   updateImageDisplay();
+
+  // smallPhoto.style.backgroundImage = 'url("../img/upload-button-bg.png")';
+
   openUserModal();
 });
+
+// function small() {
+//   smallPhoto.forEach((elem) => {
+//     elem.style.backgroundImage = './img/sprite.png';
+//   });
+
+//   return smallPhoto;
+// }
 
 function updateImageDisplay() {
   const curFiles = uploadFile.files;
@@ -24,9 +37,13 @@ function updateImageDisplay() {
 
       image.src = URL.createObjectURL(file);
 
-      preview.appendChild(image);
+      // preview.appendChild(image);
+
+      fullPhoto.src = URL.createObjectURL(file);
     }
   }
+
+  return fullPhoto;
 }
 
 const fileTypes = [

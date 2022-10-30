@@ -1,22 +1,26 @@
-import { createCards } from './data.js';
+// import { createCards } from './data.js';
 
 const cardListElement = document.querySelector('.pictures');
-const catdTemplate = document
+const cardTemplate = document
   .querySelector('#picture')
-  .content.querySelector('a');
+  .content.querySelector('.picture');
 
-const cards = createCards();
+// const cards = createCards();
 
-const cardListFragment = document.createDocumentFragment();
+const renderCardList = (cards) => {
+  const cardListFragment = document.createDocumentFragment();
 
-cards.map(({ url, likes, comments }) => {
-  const cardElement = catdTemplate.cloneNode(true);
-  cardListElement.appendChild(cardElement);
-  cardElement.querySelector('img').src = url;
-  cardElement.querySelector('.picture__comments').textContent = comments;
-  cardElement.querySelector('.picture__likes').textContent = likes;
+  cards.map(({ url, likes, comments }) => {
+    const cardElement = cardTemplate.cloneNode(true);
+    cardListElement.appendChild(cardElement);
+    cardElement.querySelector('img').src = url;
+    cardElement.querySelector('.picture__comments').textContent = comments;
+    cardElement.querySelector('.picture__likes').textContent = likes;
 
-  cardListFragment.appendChild(cardElement);
-});
+    cardListFragment.appendChild(cardElement);
+  });
 
-cardListElement.appendChild(cardListFragment);
+  cardListElement.appendChild(cardListFragment);
+};
+
+export { renderCardList };
