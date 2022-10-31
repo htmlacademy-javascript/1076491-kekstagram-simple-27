@@ -11,7 +11,6 @@ const pristine = new Pristine(imageForm, {
 
 const blockSubmitButton = () => {
   submitButton.disabled = true;
-  submitButton.textContent = 'Сохраняю...';
 };
 
 const unblockSubmitButton = () => {

@@ -5,13 +5,13 @@ const body = document.querySelector('body');
 const imageUpload = document.querySelector('.img-upload__overlay');
 const buttonCancel = document.querySelector('#upload-cancel');
 
-const picture = document.querySelectorAll('.picture');
+// const picture = document.querySelectorAll('.picture');
 
 const fullPhoto = document.querySelector('img');
 fullPhoto.classList.add('full-photo');
 
-const scaleControlSmall = document.querySelector('.scale__control--smaller');
-const scaleControlBig = document.querySelector('.scale__control--bigger');
+const scaleControlSmaller = document.querySelector('.scale__control--smaller');
+const scaleControlBigger = document.querySelector('.scale__control--bigger');
 const scaleControlValue = document.querySelector('.scale__control--value');
 
 let counter = 100;
@@ -25,12 +25,6 @@ const onModalEscKeydown = (evt) => {
     closeUserModal();
   }
 };
-
-const pic = document.querySelector('.pictures');
-
-pic.addEventListener('click', () => {
-  // openUserModal();
-});
 
 // const addThumbnailClickHandler = function (thumbnail, photo) {
 //   thumbnail.addEventListener('click', () => {
@@ -51,7 +45,7 @@ pic.addEventListener('click', () => {
 function openUserModal() {
   imageUpload.classList.remove('hidden');
   body.classList.add('modal-open');
-  scaleControlValue.value = counter + String('%');
+  scaleControlValue.value = `${counter}%`;
 
   // smallPhoto.style.backgroundImage = 'url("../img/upload-button-bg.png")';
 
@@ -90,47 +84,20 @@ function closeUserModal() {
   document.removeEventListener('keydown', onModalEscKeydown);
 }
 
-scaleControlSmall.addEventListener('click', () => {
+scaleControlSmaller.addEventListener('click', () => {
   if (counter > 25) {
     counter -= 25;
-
-    if (counter === 25) {
-      fullPhoto.style.transform = 'scale(0.25)';
-    }
-    if (counter === 50) {
-      fullPhoto.style.transform = 'scale(0.5)';
-    }
-    if (counter === 75) {
-      fullPhoto.style.transform = 'scale(0.75)';
-    }
-    if (counter === 100) {
-      fullPhoto.style.transform = 'scale(1)';
-    }
+    scaleControlValue.value = `${counter}%`;
+    fullPhoto.style.transform = `scale(${counter / 100})`;
   }
-  scaleControlValue.value = counter + String('%');
-  scaleControlSmall.classList.toggle('added');
 });
 
-scaleControlBig.addEventListener('click', () => {
+scaleControlBigger.addEventListener('click', () => {
   if (counter < 100) {
     counter += 25;
-
-    if (counter === 25) {
-      fullPhoto.style.transform = 'scale(0.25)';
-    }
-    if (counter === 50) {
-      fullPhoto.style.transform = 'scale(0.5)';
-    }
-    if (counter === 75) {
-      fullPhoto.style.transform = 'scale(0.75)';
-    }
-    if (counter === 100) {
-      fullPhoto.style.transform = 'scale(1)';
-    }
+    scaleControlValue.value = `${counter}%`;
+    fullPhoto.style.transform = `scale(${counter / 100})`;
   }
-
-  scaleControlValue.value = counter + String('%');
-  scaleControlBig.classList.toggle('added');
 });
 
 buttonCancel.addEventListener('click', () => {
