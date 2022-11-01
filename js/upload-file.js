@@ -2,13 +2,13 @@ import { openUserModal } from './user-modal.js';
 
 const uploadFile = document.querySelector('#upload-file');
 
-const preview = document.querySelector('.img-upload__overlay');
+// const preview = document.querySelector('.img-upload__overlay');
 
 uploadFile.style.opacity = 0;
 
 const fullPhoto = document.querySelector('img');
 
-const smallPhoto = document.querySelectorAll('.effects__preview');
+// const smallPhoto = document.querySelectorAll('.effects__preview');
 
 uploadFile.addEventListener('change', () => {
   updateImageDisplay();

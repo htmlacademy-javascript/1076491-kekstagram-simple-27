@@ -5,7 +5,7 @@ const body = document.querySelector('body');
 const imageUpload = document.querySelector('.img-upload__overlay');
 const buttonCancel = document.querySelector('#upload-cancel');
 
-const picture = document.querySelectorAll('.picture');
+// const picture = document.querySelectorAll('.picture');
 
 const fullPhoto = document.querySelector('img');
 
@@ -16,7 +16,6 @@ const scaleControlValue = document.querySelector('.scale__control--value');
 let counter = 100;
 
 // const smallPhoto = document.querySelectorAll('.effects__preview');
-const smallPhoto = document.querySelector('.effects__preview');
 
 const onModalEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
