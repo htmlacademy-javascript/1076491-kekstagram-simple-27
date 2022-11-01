@@ -1,4 +1,5 @@
-import { fullPhoto, smallPhoto } from './user-modal.js';
+const fullPhoto = document.querySelector('img');
+const smallPhoto = document.querySelectorAll('.effects__preview');
 
 const effects = [
   'effects__preview--none',
