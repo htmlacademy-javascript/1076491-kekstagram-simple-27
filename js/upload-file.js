@@ -7,12 +7,10 @@ const preview = document.querySelector('.img-upload__overlay');
 uploadFile.style.opacity = 0;
 
 const fullPhoto = document.querySelector('img');
-fullPhoto.classList.add('full-photo');
 
-const smallPhoto = document.querySelector('.effects__preview');
+const smallPhoto = document.querySelectorAll('.effects__preview');
 
 uploadFile.addEventListener('change', () => {
-  // fullPhoto.src = ' ';
   updateImageDisplay();
 
   // smallPhoto.style.backgroundImage = 'url("../img/upload-button-bg.png")';
@@ -43,7 +41,7 @@ function updateImageDisplay() {
     }
   }
 
-  return fullPhoto;
+  // return fullPhoto;
 }
 
 const fileTypes = [

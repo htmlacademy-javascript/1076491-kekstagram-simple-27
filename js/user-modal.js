@@ -5,10 +5,9 @@ const body = document.querySelector('body');
 const imageUpload = document.querySelector('.img-upload__overlay');
 const buttonCancel = document.querySelector('#upload-cancel');
 
-// const picture = document.querySelectorAll('.picture');
+const picture = document.querySelectorAll('.picture');
 
 const fullPhoto = document.querySelector('img');
-fullPhoto.classList.add('full-photo');
 
 const scaleControlSmaller = document.querySelector('.scale__control--smaller');
 const scaleControlBigger = document.querySelector('.scale__control--bigger');
