@@ -12,3 +12,8 @@ getData((photos) => {
 });
 
 setUserFormSubmit(closeUserModal);
+
+// const pic = document.querySelector('.pictures');
+// const pic2 = pic.querySelector('a');
+// console.log(pic);
+// console.log(pic2);

@@ -1,5 +1,5 @@
-const fullPhoto = document.querySelector('img');
-const smallPhoto = document.querySelectorAll('.effects__preview');
+const imgUploadFile = document.querySelector('.img-upload__preview img');
+const effectsPreview = document.querySelectorAll('.effects__preview');
 
 const effects = [
   'effects__preview--none',
@@ -10,8 +10,8 @@ const effects = [
   'effects__preview--heat',
 ];
 
-for (let i = 0; i < smallPhoto.length; i++) {
-  smallPhoto[i].addEventListener('click', () => {
-    fullPhoto.classList = effects[i];
+for (let i = 0; i < effectsPreview.length; i++) {
+  effectsPreview[i].addEventListener('click', () => {
+    imgUploadFile.classList = effects[i];
   });
 }

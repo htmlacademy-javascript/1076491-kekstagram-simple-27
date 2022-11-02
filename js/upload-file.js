@@ -1,30 +1,17 @@
 import { openUserModal } from './user-modal.js';
 
 const uploadFile = document.querySelector('#upload-file');
-
-// const preview = document.querySelector('.img-upload__overlay');
-
 uploadFile.style.opacity = 0;
 
-const fullPhoto = document.querySelector('img');
-
-// const smallPhoto = document.querySelectorAll('.effects__preview');
+const imgUploadFile = document.querySelector('.img-upload__preview img');
+const effectsPreview = document.querySelectorAll('.effects__preview');
 
 uploadFile.addEventListener('change', () => {
   updateImageDisplay();
-
-  // smallPhoto.style.backgroundImage = 'url("../img/upload-button-bg.png")';
+  updateImageEffect();
 
   openUserModal();
 });
-
-// function small() {
-//   smallPhoto.forEach((elem) => {
-//     elem.style.backgroundImage = './img/sprite.png';
-//   });
-
-//   return smallPhoto;
-// }
 
 function updateImageDisplay() {
   const curFiles = uploadFile.files;
@@ -35,13 +22,15 @@ function updateImageDisplay() {
 
       image.src = URL.createObjectURL(file);
 
-      // preview.appendChild(image);
-
-      fullPhoto.src = URL.createObjectURL(file);
+      imgUploadFile.src = image.src;
     }
   }
+}
 
-  // return fullPhoto;
+function updateImageEffect() {
+  effectsPreview.forEach((elem) => {
+    elem.style.backgroundImage = `url(${imgUploadFile.src})`;
+  });
 }
 
 const fileTypes = [

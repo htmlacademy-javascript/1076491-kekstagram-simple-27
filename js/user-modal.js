@@ -43,6 +43,7 @@ function openUserModal() {
 
 function closeUserModal() {
   resetScale();
+
   imageUpload.classList.add('hidden');
   body.classList.remove('modal-open');
 
@@ -54,41 +55,3 @@ buttonCancel.addEventListener('click', () => {
 });
 
 export { openUserModal, closeUserModal };
-
-// function openUserModal() {
-//   imageUpload.classList.remove('hidden');
-//   body.classList.add('modal-open');
-
-//   document.addEventListener('keydown', (evt) => {
-//     if (isEscapeKey(evt)) {
-//       evt.preventDefault();
-//       imageUpload.classList.add('hidden');
-
-//       fullPhoto.classList.remove(
-//         'effects__preview--chrome',
-//         'effects__preview--sepia',
-//         'effects__preview--marvin',
-//         'effects__preview--phobos',
-//         'effects__preview--heat'
-//       );
-//     }
-//   });
-// }
-
-// function closeUserModal() {
-//   resetScale();
-//   imageUpload.classList.add('hidden');
-//   body.classList.remove('modal-open');
-
-//   fullPhoto.classList.remove(
-//     'effects__preview--chrome',
-//     'effects__preview--sepia',
-//     'effects__preview--marvin',
-//     'effects__preview--phobos',
-//     'effects__preview--heat'
-//   );
-
-//   document.removeEventListener('keydown', onModalEscKeydown);
-// }
-
-// export { openUserModal, closeUserModal, fullPhoto };
