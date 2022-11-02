@@ -15,3 +15,9 @@ for (let i = 0; i < effectsPreview.length; i++) {
     imgUploadFile.classList = effects[i];
   });
 }
+
+function resetEffect() {
+  imgUploadFile.classList = effects[0];
+}
+
+export { resetEffect };
