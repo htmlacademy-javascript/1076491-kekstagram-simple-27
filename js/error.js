@@ -1,3 +1,5 @@
+import { isEscapeKey } from './util.js';
+
 const errorTemplate = document
   .querySelector('#error')
   .content.querySelector('.error');
@@ -11,9 +13,20 @@ const getError = () => {
     errorElement.classList.add('visually-hidden');
   });
 
+  errorElement.addEventListener('click', () => {
+    errorElement.classList.add('visually-hidden');
+  });
+
+  document.addEventListener('keydown', (evt) => {
+    if (isEscapeKey(evt)) {
+      evt.preventDefault();
+      errorElement.classList.add('visually-hidden');
+    }
+  });
+
   document.body.append(errorElement);
 };
 
-getError();
+// getError();
 
-// export { getError };
+export { getError };
