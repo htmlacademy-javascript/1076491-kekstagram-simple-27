@@ -1,6 +1,6 @@
 import { isEscapeKey } from './util.js';
 import { resetScale } from './scale.js';
-import { resetEffect } from './effect.js';
+import { resetEffects } from './effect.js';
 
 const body = document.querySelector('body');
 const imageUpload = document.querySelector('.img-upload__overlay');
@@ -30,7 +30,7 @@ function closeUserModal() {
   imageUpload.classList.add('hidden');
   body.classList.remove('modal-open');
 
-  resetEffect();
+  resetEffects();
 
   document.removeEventListener('keydown', onModalEscKeydown);
 }
