@@ -1,17 +1,15 @@
 import { openUserModal } from './user-modal.js';
 
 const uploadFile = document.querySelector('#upload-file');
-
-const preview = document.querySelector('.img-upload__overlay');
-
 uploadFile.style.opacity = 0;
 
-const fullPhoto = document.querySelector('img');
-fullPhoto.classList.add('full-photo');
+const imgUploadFile = document.querySelector('.img-upload__preview img');
+const effectsPreview = document.querySelectorAll('.effects__preview');
 
 uploadFile.addEventListener('change', () => {
-  fullPhoto.src = '';
   updateImageDisplay();
+  updateImageEffect();
+
   openUserModal();
 });
 
@@ -24,9 +22,15 @@ function updateImageDisplay() {
 
       image.src = URL.createObjectURL(file);
 
-      preview.appendChild(image);
+      imgUploadFile.src = image.src;
     }
   }
+}
+
+function updateImageEffect() {
+  effectsPreview.forEach((elem) => {
+    elem.style.backgroundImage = `url(${imgUploadFile.src})`;
+  });
 }
 
 const fileTypes = [
