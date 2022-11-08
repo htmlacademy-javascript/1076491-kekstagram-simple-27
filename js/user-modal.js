@@ -17,12 +17,7 @@ function openUserModal() {
   imageUpload.classList.remove('hidden');
   body.classList.add('modal-open');
 
-  document.addEventListener('keydown', (evt) => {
-    if (isEscapeKey(evt)) {
-      evt.preventDefault();
-      imageUpload.classList.add('hidden');
-    }
-  });
+  document.addEventListener('keydown', onModalEscKeydown);
 }
 
 function closeUserModal() {

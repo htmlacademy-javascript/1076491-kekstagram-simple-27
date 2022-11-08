@@ -27,6 +27,4 @@ const getSuccess = () => {
   document.body.append(successElement);
 };
 
-// getSuccess();
-
 export { getSuccess };
