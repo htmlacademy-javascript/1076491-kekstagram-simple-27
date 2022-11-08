@@ -27,6 +27,4 @@ const getError = () => {
   document.body.append(errorElement);
 };
 
-// getError();
-
 export { getError };

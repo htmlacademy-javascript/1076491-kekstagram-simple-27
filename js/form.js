@@ -1,5 +1,7 @@
 import { sendData } from './api.js';
 
+const submitButton = document.querySelector('.img-upload__submit');
+
 const imageForm = document.querySelector('.img-upload__form');
 document.querySelector('.img-upload__text');
 
@@ -7,6 +9,10 @@ const pristine = new Pristine(imageForm, {
   classTo: 'img-upload__text',
   errorTextParent: 'img-upload__text',
 });
+
+const blockSubmitButton = () => {
+  submitButton.disabled = true;
+};
 
 const setUserFormSubmit = (onSuccess) => {
   imageForm.addEventListener('submit', (evt) => {
@@ -17,6 +23,7 @@ const setUserFormSubmit = (onSuccess) => {
     const isvalid = pristine.validate();
 
     if (isvalid) {
+      blockSubmitButton();
       sendData(() => {
         onSuccess();
       }, new FormData(evt.target));

@@ -1,24 +1,6 @@
-function getRandomLike(min = 15, max = 200) {
-  return Math.floor(Math.random() * (max - min) + min);
-}
-
-function getRandomComment(min = 0, max = 200) {
-  return Math.floor(Math.random() * (max - min) + min);
-}
-
-const getRandomPositiveInteger = (a, b) => {
-  if (a < 0 || b < 0) {
-    return NaN;
-  }
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-};
-
-const getRandomArrayElement = (elements) =>
-  elements[getRandomPositiveInteger(0, elements.length - 1)];
-
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export { getRandomLike, getRandomComment, getRandomArrayElement, isEscapeKey };
+const URL_GET = 'https://27.javascript.pages.academy/kekstagram-simple/data';
+const URL_POST = 'https://27.javascript.pages.academy/kekstagram-simple';
+
+export { isEscapeKey, URL_GET, URL_POST };
