@@ -14,6 +14,10 @@ const blockSubmitButton = () => {
   submitButton.disabled = true;
 };
 
+const unblockkSubmitButton = () => {
+  submitButton.disabled = false;
+};
+
 const setUserFormSubmit = (onSuccess) => {
   imageForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
@@ -26,6 +30,7 @@ const setUserFormSubmit = (onSuccess) => {
       blockSubmitButton();
       sendData(() => {
         onSuccess();
+        unblockkSubmitButton();
       }, new FormData(evt.target));
     }
 
